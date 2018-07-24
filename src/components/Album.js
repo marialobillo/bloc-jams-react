@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import albumData from './../data/albums';
+import Ionicon from 'react-ionicons';
 
 class Album extends Component{
   constructor(props){
@@ -12,7 +13,9 @@ class Album extends Component{
     this.state = {
       album: album,
       currentSong: album.songs[0],
-      isPlaying: false
+      isPlaying: false,
+      isHoveredSong: null,
+      currentHoveredSong: null
     };
     this.audioElement = document.createElement('audio');
     this.audioElement.src = album.songs[0].audioSrc;
@@ -38,6 +41,15 @@ class Album extends Component{
       this.play();
     }
   }
+
+  toggleButton(song){
+    if(this.state.isPlaying && this.state.currentSong === song){
+      return "md-pause";
+    } else {
+      return "md-play";
+    }
+  }
+
   render(){
     return(
       <section className="album">
@@ -60,8 +72,16 @@ class Album extends Component{
               this.state.album.songs.map( (song, index) =>
                 <tr key={index}
                     className="song"
-                    onClick={() => this.handleSongClick(song)}>
-                  <td>{index + 1}</td>
+                    onClick={() => this.handleSongClick(song)}
+                    onMouseEnter={() => this.setState({isHoveredSong: index + 1})}
+                    onMouseLeave={() => this.setState({isHoveredSong: null})}
+                  >
+                  <td>
+                    { this.state.isHoveredSong === (index + 1)  ?
+                      <span><Ionicon icon={this.toggleButton(song)} /></span> :
+                      (index + 1) }
+
+                  </td>
                   <td>{song.title}</td>
                   <td>{song.duration}</td>
                 </tr>
