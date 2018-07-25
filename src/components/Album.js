@@ -58,7 +58,7 @@ class Album extends Component{
     this.setSong(newSong);
     this.play();
   }
-  
+
 
   render(){
     return(
