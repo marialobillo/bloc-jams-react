@@ -51,7 +51,7 @@ class Album extends Component{
     }
   }
 
-  handlePrevClic(){
+  handlePrevClick(){
     const currentIndex = this.state.album.songs.findIndex(song => this.state.currentSong === song);
     const newIndex = Math.max(0, currentIndex - 1);
     const newSong = this.state.album.songs[newIndex];
@@ -102,7 +102,7 @@ class Album extends Component{
           isPlaying={this.state.isPlaying}
           currentSong={this.state.currentSong}
           handleSongClick={() => this.handleSongClick(this.state.currentSong)}
-          handlePrevClick={() => this.handlePrevClic()}
+          handlePrevClick={() => this.handlePrevClick()}
         />
       </section>
     )
