@@ -65,6 +65,13 @@ class Album extends Component{
     this.setSong(newSong);
     this.play();
   }
+
+  handleTimeChange(e){
+    const newTime = this.audioElement.duration * e.target.value;
+    this.audioElement.currentTime = newTime;
+    this.setState({ currentTime: newTime });
+    // hello
+  }
   render(){
     return(
       <section className="album">
