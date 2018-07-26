@@ -37,10 +37,6 @@ class Album extends Component{
   }
   componentWillUnmount(){
     this.audioElement.src = null;
-    this.audioElement = null;
-  }
-  componentWillUnmount(){
-    this.audioElement.src = null;
     this.audioElement.removeEventListener('timeupdate', this.eventListeners.timeupdate);
     this.audioElement.removeEventListener('durationchange', this.eventListeners.durationchange);
   }
