@@ -19,6 +19,8 @@ class Album extends Component{
       currentHoveredSong: null,
       currentTime: 0,
       duration: album.songs[0].duration,
+      currentVolume: 0.4,
+      volume: 1
 
     };
     this.audioElement = document.createElement('audio');
@@ -81,15 +83,34 @@ class Album extends Component{
       },
       durationchange: e => {
         this.setState({ duration: this.audioElement.duration });
+      },
+      volumechange: e => {
+        this.setState({ currentVolume: this.audioElement.currentVolume });
       }
     };
     this.audioElement.addEventListener('timeupdate', this.eventListeners.timeupdate);
     this.audioElement.addEventListener('durationchange', this.eventListeners.durationchange);
+    this.audioElement.addEventListener('volumechange', this.eventListeners.volumenchange);
   }
   componentWillUnmount(){
     this.audioElement.src = null;
     this.audioElement.removeEventListener('timeupdate', this.eventListeners.timeupdate);
     this.audioElement.removeEventListener('durationchange', this.eventListeners.durationchange);
+    this.audioElement.removeEventListener('volumechange', this.eventListeners.volumenchange);
+  }
+  formatTime(time){
+    if((!isNaN(parseFloat(time)) && isFinite(time)) || (time < 599)){
+      let minutes = Math.trunc(time / 60)
+      let seconds = Math.trunc(time % 60)
+      return `${minutes}:${seconds}`
+    } else {
+      return "-:--"
+    }
+  }
+  handleVolumeChange(e){
+    const currentVolume = e.target.value;
+    this.audioElement.volume = currentVolume;
+    this.setState({currentVolume});
   }
   render(){
     return(
@@ -139,6 +160,10 @@ class Album extends Component{
           currentTime={this.audioElement.currentTime}
           duration={this.audioElement.duration}
           handleTimeChange={(e) => this.handleTimeChange(e)}
+          currentVolume={this.state.currentVolume}
+          volume={this.audioElement.volume}
+          handleVolumeChange={(e) => this.handleVolumeChange(e)}
+          formatTime={(e) => this.formatTime(this.state.currentTime)}
         />
       </section>
     )
