@@ -120,7 +120,9 @@ class Album extends Component{
     return(
       <section className="album">
         <section id="album-info">
-            <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title}/>
+            <div className="album-cover">
+              <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title}/>
+            </div>
             <div className="album-details">
             <h1 id="album-title">{this.state.album.title}</h1>
             <h2 className="artist">{this.state.album.artist}</h2>
@@ -129,9 +131,9 @@ class Album extends Component{
         </section>
         <table id="song-list">
           <colgroup>
-            <col id="song-number-column" />
-            <col id="song-title-column" />
-            <col id="song-duration-column" />
+            <col id="song-number-column" className="song-track"/>
+            <col id="song-title-column" className="song-track"/>
+            <col id="song-duration-column" className="song-tract"/>
           </colgroup>
           <tbody>
             {

@@ -26,3 +26,155 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+body{
+  background-color: #3498db;
+}
+
+.top-menu{
+  padding: 20px;
+}
+
+.item-menu{
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 0 30px;
+  float: left;
+  vertical-align: center;
+}
+
+.item-menu:hover{
+  color: #2c3e50;
+}
+
+.title{
+  width: 90%;
+  margin: 0 auto;
+  padding-top:80px;
+  font-size: 3.5rem;
+  color: #f1c40f;
+}
+
+/* Landing Page */
+.landing{
+  width: 55%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.hero-title{
+  font-size:2rem;
+  color: #f1c40f;
+}
+
+.point-title{
+  font-style: italic;
+}
+
+.selling-points{
+  background-color: #fff;
+  border-radius: 40px;
+  padding:30px;
+  color:#2c3e50;
+
+}
+
+/* Library Page */
+
+.library{
+  margin-top: 50px;
+}
+
+.library-album{
+  margin-top: 40px;
+  display: inline-block;
+  margin: 5px;
+  padding: 12px;
+  border: 1px solid #aaa;
+  background-color: #eee;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.library-image{
+  width: 300px;
+  height: 300px;
+}
+
+.library-title{
+  display:block;
+  width:100%;
+  margin: 10px;
+  font-size: 1.5em;
+}
+
+/* Album Page */
+
+.album{
+  margin-top:100px;
+}
+
+.album-cover{
+  float:left;
+  display:inline;
+  position:relative;
+}
+
+#album-cover-art{
+  width:70%;
+}
+
+.album-details{
+
+}
+
+#album-title{
+  color: #f1c40f;
+  font-size: 1.9em;
+}
+
+.artist, #release-info{
+  font-size: 1em;
+  color: #bdc3c7;
+  margin:0;
+}
+
+#song-list{
+  margin-top:10px;
+  padding:15px 35px;
+  border-radius: 5px;
+  color: #bdc3c7;
+  float: left;
+  display:inline;
+  width: 180px;
+}
+
+tr.song{
+  height: 45px;
+}
+
+#song-number-colum{
+  width: 30px;
+}
+
+/* PlayerBar */
+
+.player-bar{
+  width: 300px;
+  margin: 20px 40px 20px 12px;
+  float:right;
+  border-radius: 5px;
+  border: 1px solid #bbb;
+  padding: 10px;
+  background-color: #eee;
+}
+
+.ion-volume-low{
+  float:left;
+  margin-left: 40px;
+}
+
+.ion-volume-high{
+  float: right;
+}
