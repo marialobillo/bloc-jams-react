@@ -102,7 +102,11 @@ class Album extends Component{
     if((!isNaN(parseFloat(time)) && isFinite(time)) || (time < 599)){
       let minutes = Math.trunc(time / 60)
       let seconds = Math.trunc(time % 60)
-      return `${minutes}:${seconds}`
+      if(seconds <= 9){
+        return `${minutes}:0${seconds}`
+      } else {
+        return `${minutes}:${seconds}`
+      }
     } else {
       return "-:--"
     }
@@ -145,7 +149,7 @@ class Album extends Component{
 
                   </td>
                   <td>{song.title}</td>
-                  <td>{song.duration}</td>
+                  <td>{this.formatTime(song.duration)}</td>
                 </tr>
               )
             }
